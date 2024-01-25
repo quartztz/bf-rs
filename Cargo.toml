@@ -1,8 +1,16 @@
 [package]
-name = "bfi-rs"
+name = "bf-rs"
 version = "0.1.0"
+authors = ["quartztz <quartztz@proton.me>"]
+description = "A bad brainfuck interpreter implementation"]
+license = "MIT/Apache-2.0"
+repository = "https://github.com/quartztz/bf-rs"
 edition = "2021"
 
 # See more keys and their definitions at https://doc.rust-lang.org/cargo/reference/manifest.html
 
+[lib]
+crate-type = ["cdylib"]
+
 [dependencies]
+wasm-bindgen = "0.2"

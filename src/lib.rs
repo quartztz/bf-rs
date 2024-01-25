@@ -2,10 +2,13 @@
 // Note that this is not a compiler: it will strictly run through the original 
 // code, without building an AST or anything of the sort. 
 
+use wasm_bindgen::prelude::*;
+
 const TAPE_SIZE: usize = 30000; // from the spec
 use std::io::{stdin, Read};
 
-fn interpret(code: &str) {
+#[wasm_bindgen]
+pub fn interpret(code: &str) {
     // main steps will be populating a jump table for any `/[]/` we might come 
     // across, and defining a tape to run through. 
     let mut needle: usize = 0; 
@@ -81,7 +84,7 @@ fn interpret(code: &str) {
     println!(); // flush stdout
 }
 
-fn main() {
-   interpret("++++++++[>++++[>++>+++>+++>+<<<<-]>+>+>->>+[<]<-]>>.>---.+++++++..+++.>>.<-.<.+++.------.--------.>>+.>++.");
-}
+// fn main() {
+//    interpret("++++++++[>++++[>++>+++>+++>+<<<<-]>+>+>->>+[<]<-]>>.>---.+++++++..+++.>>.<-.<.+++.------.--------.>>+.>++.");
+// }
 
